@@ -1,0 +1,40 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <Description>An EnhancedFileSystemWatcher, which can be used to suppress duplicate events that fire on a single change to the file.</Description>
+    <AssemblyTitle>System.IO.EnhancedFileSystemWatcher</AssemblyTitle>
+    <RootNamespace>System.IO</RootNamespace>
+    <Version>1.0.0</Version>
+    <Authors>Vipul Prashar;Stef Heyenrath</Authors>
+    <PackageTags>FileSystemWatcher;EnhancedFileSystemWatcher;Delayed;Multiple;Events</PackageTags>
+    <PackageProjectUrl>https://github.com/StefH/System.IO.EnhancedFileSystemWatcher</PackageProjectUrl>
+    <PackageLicenseUrl>https://github.com/StefH/System.IO.EnhancedFileSystemWatcher/master/LICENSE</PackageLicenseUrl>
+    <RepositoryType>git</RepositoryType>
+    <RepositoryUrl>https://github.com/StefH/System.IO.EnhancedFileSystemWatcher</RepositoryUrl>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <TargetFrameworks>net20;net45;netstandard1.3;netstandard2.0</TargetFrameworks>
+  </PropertyGroup>
+
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <DebugType>full</DebugType>
+    <IncludeSource>True</IncludeSource>
+    <IncludeSymbols>True</IncludeSymbols>
+    <PathMap>$(MSBuildProjectDirectory)=/</PathMap>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="JetBrains.Annotations" Version="11.1.0">
+      <PrivateAssets>All</PrivateAssets>
+    </PackageReference>
+  </ItemGroup>
+
+  <ItemGroup Condition=" '$(TargetFramework)' == 'net20' ">
+    <PackageReference Include="NetLegacySupport.ConcurrentDictionary" Version="1.1.1" />
+  </ItemGroup>
+
+  <ItemGroup Condition=" '$(TargetFramework)' == 'netstandard1.3' ">
+    <PackageReference Include="System.IO.FileSystem.Watcher" Version="4.3.0" />
+  </ItemGroup>
+
+</Project>

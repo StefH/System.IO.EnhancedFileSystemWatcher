@@ -1,5 +1,5 @@
 # System.IO.EnhancedFileSystemWatcher
-An EnhancedFileSystemWatcher, which can be used to suppress duplicate events that fire on a single change to the file
+An EnhancedFileSystemWatcher, which can be used to suppress duplicate events that fire on a single change to the file.
 
 This project is based on [Enhanced-FileSystemWatcher](https://www.codeproject.com/Articles/102493/Enhanced-FileSystemWatcher) which was written by [Vipul Prashar](https://www.codeproject.com/script/Membership/View.aspx?mid=1561441).
 
