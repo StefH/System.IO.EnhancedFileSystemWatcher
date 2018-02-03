@@ -16,10 +16,10 @@ The following frameworks are supported:
 # Information
 
 ## Introduction
-This article discusses an enhanced FileSystemWatcher class which can be used to suppress duplicate events that fire on a single change to the file.
+This project describes an enhanced FileSystemWatcher class which can be used to suppress duplicate events that fire on a single change to the file.
 
 ## Background
-System.IO.FileSystemWatcher class helps the user to monitor a directory and multiple or single file within a directory. Whenever a change (Creation, Modification, Deletion or Renaming) is detected, an appropriate event is raised. However, duplicate events fire depending on the software that is being used to modify the file.
+The `System.IO.FileSystemWatcher` class helps the user to monitor a directory and multiple or single file within a directory. Whenever a change (Creation, Modification, Deletion or Renaming) is detected, an appropriate event is raised. However, duplicate events fire depending on the software that is being used to modify the file.
 
 
 ## Observation
@@ -31,7 +31,7 @@ Using Textpad, creating a file in a directory that was being watched resulted in
 We need to keep track of the event as they get fired and suppress subsequent events that occur within pre-determined interval.
 
 ## Example
-``` charp
+``` c#
 class Program
 {
     static void Main(string[] args)
