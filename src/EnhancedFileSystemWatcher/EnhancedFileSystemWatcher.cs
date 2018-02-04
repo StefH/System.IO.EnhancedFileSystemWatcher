@@ -1,4 +1,5 @@
 ﻿using System.Collections.Concurrent;
+using System.IO.Validation;
 using JetBrains.Annotations;
 
 namespace System.IO
@@ -11,12 +12,13 @@ namespace System.IO
     public class EnhancedFileSystemWatcher : FileSystemWatcher, IDisposable
     {
         #region Private Members
+        // Default Watch Interval in Milliseconds
         private const int DefaultWatchInterval = 100;
 
         // This Dictionary keeps the track of when an event occured last for a particular file
         private ConcurrentDictionary<string, DateTime> _lastFileEvent;
 
-        // Interval in Millisecond
+        // Watch Interval in Milliseconds
         private int _interval;
 
         // Timespan created when interval is set
@@ -55,6 +57,8 @@ namespace System.IO
         /// <param name="interval">The interval.</param>
         public EnhancedFileSystemWatcher(int interval = DefaultWatchInterval)
         {
+            Check.Condition(interval, i => i >= 0, nameof(interval));
+
             InitializeMembers(interval);
         }
 
@@ -63,8 +67,11 @@ namespace System.IO
         /// </summary>
         /// <param name="path">The directory to monitor, in standard or Universal Naming Convention (UNC) notation.</param>
         /// <param name="interval">The interval.</param>
-        public EnhancedFileSystemWatcher(string path, int interval = DefaultWatchInterval) : base(path)
+        public EnhancedFileSystemWatcher([NotNull] string path, int interval = DefaultWatchInterval) : base(path)
         {
+            Check.NotNullOrEmpty(path, nameof(path));
+            Check.Condition(interval, i => i >= 0, nameof(interval));
+
             InitializeMembers(interval);
         }
 
@@ -74,8 +81,12 @@ namespace System.IO
         /// <param name="path">The directory to monitor, in standard or Universal Naming Convention (UNC) notation.</param>
         /// <param name="filter">The type of files to watch. For example, "*.txt" watches for changes to all text files.</param>
         /// <param name="interval">The interval.</param>
-        public EnhancedFileSystemWatcher(string path, string filter, int interval = DefaultWatchInterval) : base(path, filter)
+        public EnhancedFileSystemWatcher([NotNull] string path, [NotNull] string filter, int interval = DefaultWatchInterval) : base(path, filter)
         {
+            Check.NotNullOrEmpty(path, nameof(path));
+            Check.NotNullOrEmpty(filter, nameof(filter));
+            Check.Condition(interval, i => i >= 0, nameof(interval));
+
             InitializeMembers(interval);
         }
         #endregion
@@ -145,7 +156,6 @@ namespace System.IO
         #endregion
 
         #region Private Methods
-
         /// <summary>
         /// This Method Initializes the private members.
         /// Interval is set to its default value of 100 millisecond.
@@ -239,8 +249,8 @@ namespace System.IO
         }
         #endregion
         #endregion
-        #region IDisposable Members
 
+        #region IDisposable Members
         /// <summary>
         /// Releases all resources used by the <see cref="T:System.ComponentModel.Component" />.
         /// </summary>
@@ -248,7 +258,6 @@ namespace System.IO
         {
             base.Dispose();
         }
-
         #endregion
     }
 }
