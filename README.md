@@ -4,7 +4,7 @@ An EnhancedFileSystemWatcher, which can be used to suppress duplicate events tha
 This project is based on [Enhanced-FileSystemWatcher](https://www.codeproject.com/Articles/102493/Enhanced-FileSystemWatcher) which was written by [Vipul Prashar](https://www.codeproject.com/script/Membership/View.aspx?mid=1561441).
 
 ## NuGet
-[![NuGet Badge](https://buildstats.info/nuget/System.IO.EnhancedFileSystemWatcher)](https://www.nuget.org/packages/System.IO.EnhancedFileSystemWatcher) 
+[![NuGet Badge](https://buildstats.info/nuget/EnhancedFileSystemWatcher)](https://www.nuget.org/packages/EnhancedFileSystemWatcher) 
 
 ## Frameworks
 The following frameworks are supported:
