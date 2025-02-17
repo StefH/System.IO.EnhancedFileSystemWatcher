@@ -4,7 +4,7 @@ An EnhancedFileSystemWatcher, which can be used to suppress duplicate events tha
 This project is based on [Enhanced-FileSystemWatcher](https://www.codeproject.com/Articles/102493/Enhanced-FileSystemWatcher) which was written by [Vipul Prashar](https://www.codeproject.com/script/Membership/View.aspx?mid=1561441).
 
 ## NuGet
-[![NuGet Badge](https://buildstats.info/nuget/EnhancedFileSystemWatcher)](https://www.nuget.org/packages/EnhancedFileSystemWatcher) 
+[![NuGet Badge](https://img.shields.io/nuget/v/EnhancedFileSystemWatcher)](https://www.nuget.org/packages/EnhancedFileSystemWatcher) 
 
 ## Frameworks
 The following frameworks are supported:
@@ -20,7 +20,6 @@ This project describes an enhanced FileSystemWatcher class which can be used to 
 
 ## Background
 The `System.IO.FileSystemWatcher` class helps the user to monitor a directory and multiple or single file within a directory. Whenever a change (Creation, Modification, Deletion or Renaming) is detected, an appropriate event is raised. However, duplicate events fire depending on the software that is being used to modify the file.
-
 
 ## Observation
 Using Notepad, modifying the contents of a file results in 2 Changed events being fired. Doing the same using Textpad results in 4 Changed events being fired.
