@@ -1,35 +1,25 @@
-# System.IO.EnhancedFileSystemWatcher
+﻿## System.IO.EnhancedFileSystemWatcher
 An EnhancedFileSystemWatcher, which can be used to suppress duplicate events that fire on a single change to the file.
 
 This project is based on [Enhanced-FileSystemWatcher](https://www.codeproject.com/Articles/102493/Enhanced-FileSystemWatcher) which was written by [Vipul Prashar](https://www.codeproject.com/script/Membership/View.aspx?mid=1561441).
 
-## NuGet
-[![NuGet Badge](https://img.shields.io/nuget/v/EnhancedFileSystemWatcher)](https://www.nuget.org/packages/EnhancedFileSystemWatcher) 
+## Information
 
-## Frameworks
-The following frameworks are supported:
-- net 2.0
-- net 4.5 and up
-- netstandard 1.3
-- netstandard 2.0
-
-# Information
-
-## Introduction
+### Introduction
 This project describes an enhanced FileSystemWatcher class which can be used to suppress duplicate events that fire on a single change to the file.
 
-## Background
+### Background
 The `System.IO.FileSystemWatcher` class helps the user to monitor a directory and multiple or single file within a directory. Whenever a change (Creation, Modification, Deletion or Renaming) is detected, an appropriate event is raised. However, duplicate events fire depending on the software that is being used to modify the file.
 
-## Observation
+### Observation
 Using Notepad, modifying the contents of a file results in 2 Changed events being fired. Doing the same using Textpad results in 4 Changed events being fired.
 
 Using Textpad, creating a file in a directory that was being watched resulted in 1 Created and 3 Changed events being fired. In case of Notepad, Created followed by Deleted!!, followed by Created and 3 Changed Events were observed.
 
-## Proposed Solution
+### Proposed Solution
 We need to keep track of the event as they get fired and suppress subsequent events that occur within pre-determined interval.
 
-## Example
+### Example
 ``` c#
 class Program
 {
@@ -67,7 +57,7 @@ class Program
 }
 ```
 
-## Sponsors
+### Sponsors
 
 [Entity Framework Extensions](https://entityframework-extensions.net/?utm_source=StefH) and [Dapper Plus](https://dapper-plus.net/?utm_source=StefH) are major sponsors and proud to contribute to the development of **System.IO.EnhancedFileSystemWatcher**.
 

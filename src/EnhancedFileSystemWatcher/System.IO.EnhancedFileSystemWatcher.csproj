@@ -5,15 +5,16 @@
     <AssemblyTitle>System.IO.EnhancedFileSystemWatcher</AssemblyTitle>
     <PackageId>EnhancedFileSystemWatcher</PackageId>
     <RootNamespace>System.IO</RootNamespace>
-    <Version>1.0.0</Version>
+    <Version>1.0.0.1</Version>
     <Authors>Vipul Prashar;Stef Heyenrath</Authors>
     <PackageTags>FileSystemWatcher;EnhancedFileSystemWatcher;Delayed;Multiple;Events</PackageTags>
     <PackageProjectUrl>https://github.com/StefH/System.IO.EnhancedFileSystemWatcher</PackageProjectUrl>
-    <PackageLicenseUrl>https://raw.githubusercontent.com/StefH/System.IO.EnhancedFileSystemWatcher/master/LICENSE</PackageLicenseUrl>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <RepositoryType>git</RepositoryType>
     <RepositoryUrl>https://github.com/StefH/System.IO.EnhancedFileSystemWatcher</RepositoryUrl>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
     <TargetFrameworks>net20;net45;netstandard1.3;netstandard2.0</TargetFrameworks>
+    <PackageReadmeFile>PackageReadme.md</PackageReadmeFile>
   </PropertyGroup>
 
   <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
@@ -24,8 +25,13 @@
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
   </PropertyGroup>
 
+
   <ItemGroup>
-    <PackageReference Include="JetBrains.Annotations" Version="11.1.0">
+    <None Include="../../PackageReadme.md" Pack="true" PackagePath="" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="JetBrains.Annotations" Version="2024.3.0">
       <PrivateAssets>All</PrivateAssets>
     </PackageReference>
   </ItemGroup>
